@@ -3,6 +3,9 @@ import time
 import pyperclip
 import pandas as pd
 import datetime
+import locale
+
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 print(20 * '=', 'Relatório de Vendas', 20 * '=')
 while True:
@@ -34,17 +37,37 @@ if opc == 1:
     print(f'Período: {dataini}', ' ~ ', f'{datafim}')
     print()
 
-    faturamento = datas_filtradas['Valor Final'].sum()
-    qtd_prod = datas_filtradas['Quantidade'].sum()
-    maisvend = datas_filtradas[['Produto', 'Quantidade']].groupby('Produto').sum()
-    maisvend1 = maisvend.loc[maisvend['Quantidade'] == maisvend['Quantidade'].max()].reset_index()
+    #Filtra produto mais vendido + quantidade + faturamento
+    prod_mais_vendido = datas_filtradas[['Produto', 'Quantidade', 'Valor Final']].groupby('Produto').sum()
+    prod_mais_vendido_filtrado = prod_mais_vendido.loc[
+        prod_mais_vendido['Quantidade'] == prod_mais_vendido['Quantidade'].max()].reset_index()
+    prod_mais_vendido_faturamento = locale.currency(prod_mais_vendido_filtrado['Valor Final'].sum())
 
-    print(f'Faturamento Total: R${round(faturamento, 2)}')
-    print(f'Quantidade de produtos vendidos: {qtd_prod}')
+    #Filtra loja que mais vendeu + quantidade + faturamento
+    loja_mais_vendas = datas_filtradas[['ID Loja', 'Quantidade', 'Valor Final']].groupby('ID Loja').sum()
+    loja_mais_vendas_filtrado = loja_mais_vendas.loc[
+        loja_mais_vendas['Quantidade'] == loja_mais_vendas['Quantidade'].max()].reset_index()
+    loja_mais_vendas_faturamento =  locale.currency(loja_mais_vendas_filtrado['Valor Final'].sum())
+
+    #Faz a seleção do faturamento total + total de peças vendidas
+    faturamento = locale.currency(datas_filtradas['Valor Final'].sum())
+    qtd_prod = datas_filtradas['Quantidade'].sum()
+
+    print(10 * '-', 'Produto Mais Vendido', 10 * '-')
+    print(f'-> Nome: {prod_mais_vendido_filtrado["Produto"][0]}')
+    print(f'-> Quantidade: {prod_mais_vendido_filtrado["Quantidade"][0]}')
+    print(f'-> Faturamento: {prod_mais_vendido_faturamento}')
     print()
-    print('Produto mais vendido:')
-    print(maisvend1['Quantidade'][0])
-    print(maisvend1['Produto'][0])
+
+    print(10 * '-', 'Loja Com Mais Vendas', 10 * '-')
+    print(f'-> Nome: {loja_mais_vendas_filtrado["ID Loja"][0]}')
+    print(f'-> Quantidade: {loja_mais_vendas_filtrado["Quantidade"][0]}')
+    print(f'-> Faturamento: {loja_mais_vendas_faturamento}')
+    print()
+
+    print(17 * '-', 'TOTAL', 17 * '-')
+    print(f'-> Produtos Vendidos: {qtd_prod}')
+    print(f'-> Faturamento: {faturamento}')
 
 '''pyautogui.PAUSE = 1
 
