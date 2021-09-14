@@ -5,9 +5,12 @@ import pandas as pd
 import datetime
 import locale
 
+#Atribui local
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
+#Título
 print(20 * '=', 'Relatório de Vendas', 20 * '=')
+#Faz while para verificação da resposta, laço para quando o usuário digita 1 ou 2.
 while True:
     opc = int(input('1 - Resumo de Vendas\n2 - Relatório de Vendas via e-Mail\n'))
     if opc != 1 and opc != 2:
@@ -18,22 +21,27 @@ while True:
 if opc == 1:
     print()
     #Lembrar! A solicitação deve ser feita com try e catch.
+    #Solicita datas para filtrar a tabela
     dataini = datetime.datetime.strptime(str(input('Digite a data inicial do período que gostaria de analisar'
                                                    '(dd/mm/aaaa):\n')), '%d/%m/%Y')
     datafim = datetime.datetime.strptime(str(input('Digite a data final do período que gostaria de analisar'
                                                    '(dd/mm/aaaa):\n')), '%d/%m/%Y')
 
+    #Lê excel
     df = pd.read_excel(
         r'C:\Users\T460s\Documents\GitHub\projeto_python_envio_relatorios_automatizados/Vendas - Dez.xlsx')
+    #Converte os dados da coluna 'Data' para formate datetime
     df_datas = pd.to_datetime(df['Data'], format='%b %d, %Y')
 
+    #Filtra data de acordo com a data selecionada pelo usuário
     apos_dataini = df['Data'] >= dataini
     antes_datafim = df['Data'] <= dataini
     df_formatado = apos_dataini & antes_datafim
     datas_filtradas = df.loc[df_formatado]
 
-
+    #Cabeçalho para mostrar os resultados
     print(20 * '-', 'Resumo Geral de Vendas', 20 * '-')
+    #Mostra data filtrada
     print(f'Período: {dataini}', ' ~ ', f'{datafim}')
     print()
 
@@ -53,18 +61,21 @@ if opc == 1:
     faturamento = locale.currency(datas_filtradas['Valor Final'].sum())
     qtd_prod = datas_filtradas['Quantidade'].sum()
 
+    #Mostra valores do produto mais vendido
     print(10 * '-', 'Produto Mais Vendido', 10 * '-')
     print(f'-> Nome: {prod_mais_vendido_filtrado["Produto"][0]}')
     print(f'-> Quantidade: {prod_mais_vendido_filtrado["Quantidade"][0]}')
     print(f'-> Faturamento: {prod_mais_vendido_faturamento}')
     print()
 
+    # Mostra valores da loja que mais vendeu
     print(10 * '-', 'Loja Com Mais Vendas', 10 * '-')
     print(f'-> Nome: {loja_mais_vendas_filtrado["ID Loja"][0]}')
     print(f'-> Quantidade: {loja_mais_vendas_filtrado["Quantidade"][0]}')
     print(f'-> Faturamento: {loja_mais_vendas_faturamento}')
     print()
 
+    #Mostra valores totais
     print(17 * '-', 'TOTAL', 17 * '-')
     print(f'-> Produtos Vendidos: {qtd_prod}')
     print(f'-> Faturamento: {faturamento}')
