@@ -136,7 +136,7 @@ while True:
             navegador_padrao = str(input('Digite o nome do seu navegador de internet padrão:\n'))
 
             #Solicita o destinatário
-            destinatario = str(input('Digite o email do destinatário do email:\n'))
+            destinatario = str(input('Digite o(s) email(s) do(s) destinatário(s):\n'))
 
             #Solicita o Assunto do E-mail
             assunto = str(input('Digite o assunto do email:\n'))
@@ -149,7 +149,7 @@ while True:
                 else:
                     break
             if opc3 in 'Ss':
-                print()
+                em_copia = str(input('Digite o email'))
             else:
                 pyautogui.PAUSE = 1
 
