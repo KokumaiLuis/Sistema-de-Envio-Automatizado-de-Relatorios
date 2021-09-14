@@ -171,6 +171,7 @@ while True:
                 pyautogui.press('enter')
                 time.sleep(5)
                 pyautogui.click(94, 227)
+                time.sleep(7)
                 pyautogui.write(destinatario)
                 pyautogui.press('tab')
                 pyautogui.press('tab')
