@@ -160,7 +160,7 @@ while True:
             else:
                 pyautogui.PAUSE = 1
 
-                pyautogui.alert("A automação iniciará em 3 segundos, aperte OK a após isso não mexa em nada.")
+                pyautogui.alert("A automação iniciará em 3 segundos, aperte OK e após isso não mexa em nada.")
                 time.sleep(3)
 
                 #Abre Navegador
