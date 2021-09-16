@@ -136,7 +136,14 @@ while True:
             navegador_padrao = str(input('Digite o nome do seu navegador de internet padrão:\n'))
 
             #Solicita o destinatário
-            destinatario = str(input('Digite o(s) email(s) do(s) destinatário(s):\n'))
+            destinatario = []
+            while True:
+                tempdest = str(input('Digite o(s) email(s) do(s) destinatário(s):("fim" p/ Parar)\n')).lower()
+                if tempdest not in 'fim':
+                    destinatario.append(tempdest)
+                else:
+                    break
+
 
             #Solicita o Assunto do E-mail
             assunto = str(input('Digite o assunto do email:\n'))
@@ -153,27 +160,28 @@ while True:
             else:
                 pyautogui.PAUSE = 1
 
-                pyautogui.alert("A automação iniciará em 3 segundos, aperte OK.")
+                pyautogui.alert("A automação iniciará em 3 segundos, aperte OK a após isso não mexa em nada.")
                 time.sleep(3)
 
                 #Abre Navegador
                 pyautogui.press("winleft")
-                time.sleep(1)
+                time.sleep(3)
                 pyautogui.write(navegador_padrao)
-                time.sleep(2)
+                time.sleep(3)
                 pyautogui.press("enter")
-                time.sleep(5)
+                time.sleep(8)
                 pyautogui.hotkey('ctrl', 't')
-                time.sleep(1)
+                time.sleep(3)
 
                 #Abre Gmail
                 pyautogui.write("mail.google.com")
                 pyautogui.press('enter')
-                time.sleep(5)
+                time.sleep(12)
                 pyautogui.click(94, 227)
                 time.sleep(7)
-                pyautogui.write(destinatario)
-                pyautogui.press('tab')
+                for c in destinatario:
+                    pyautogui.write(c)
+                    pyautogui.press('space')
                 pyautogui.press('tab')
                 pyautogui.write(assunto)
                 pyautogui.press('tab')
@@ -198,7 +206,7 @@ while True:
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
-                pyautogui.hotkey('ctrl', 'enter')
+                #pyautogui.hotkey('ctrl', 'enter')
 
         else:
             print('Envio de relatório por E-mail cancelado.')
