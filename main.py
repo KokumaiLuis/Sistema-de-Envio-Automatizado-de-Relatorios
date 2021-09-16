@@ -217,7 +217,7 @@ while True:
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
-                # pyautogui.hotkey('ctrl', 'enter')
+                pyautogui.hotkey('ctrl', 'enter')
 
             else:
                 pyautogui.PAUSE = 1
@@ -268,7 +268,7 @@ while True:
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
-                #pyautogui.hotkey('ctrl', 'enter')
+                pyautogui.hotkey('ctrl', 'enter')
 
         else:
             print('Envio de relatório por E-mail cancelado.')
