@@ -1,5 +1,0 @@
-* pyautogui
-* time
-* pyperclip
-* pandas
-* openpyxl
