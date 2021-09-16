@@ -156,7 +156,69 @@ while True:
                 else:
                     break
             if opc3 in 'Ss':
-                em_copia = str(input('Digite o email'))
+                em_copia = []
+                while True:
+                    tempemcopia = str(input('Digite o(s) email(s) do(s) destinatário(s) em cópia:("fim" p/ Parar)\n'))\
+                        .lower()
+                    if tempemcopia not in 'fim':
+                        em_copia.append(tempemcopia)
+                    else:
+                        break
+
+                pyautogui.PAUSE = 1
+
+                pyautogui.alert("A automação iniciará em 3 segundos, aperte OK e após isso não mexa em nada.")
+                time.sleep(3)
+
+                # Abre Navegador
+                pyautogui.press("winleft")
+                time.sleep(3)
+                pyautogui.write(navegador_padrao)
+                time.sleep(3)
+                pyautogui.press("enter")
+                time.sleep(8)
+                pyautogui.hotkey('ctrl', 't')
+                time.sleep(3)
+
+                # Abre Gmail
+                pyautogui.write("mail.google.com")
+                pyautogui.press('enter')
+                time.sleep(12)
+                pyautogui.click(94, 227)
+                time.sleep(7)
+                for c in destinatario:
+                    pyautogui.write(c)
+                    pyautogui.press('tab')
+                pyautogui.hotkey('ctrl', 'shift', 'c')
+                for c in em_copia:
+                    pyautogui.write(c)
+                    pyautogui.press('tab')
+                pyautogui.press('tab')
+                pyautogui.write(assunto)
+                pyautogui.press('tab')
+
+                corpo_email = '----------Produto Mais Vendido----------\n' \
+                              f'-> Nome: {prod_mais_vendido_filtrado["Produto"][0]}\n' \
+                              f'-> Quantidade: {prod_mais_vendido_filtrado["Quantidade"][0]}\n' \
+                              f'-> Faturamento: {prod_mais_vendido_faturamento}\n\n' \
+                              \
+                              '----------Loja Com Mais Vendas----------\n' \
+                              f'-> Nome: {loja_mais_vendas_filtrado["ID Loja"][0]}\n' \
+                              f'-> Quantidade: {loja_mais_vendas_filtrado["Quantidade"][0]}\n' \
+                              f'-> Faturamento: {loja_mais_vendas_faturamento}\n\n' \
+                              \
+                              '-----------------TOTAL-----------------\n' \
+                              f'-> Produtos Vendidos: {qtd_prod}\n' \
+                              f'-> Faturamento: {faturamento}\n\n' \
+                              \
+                              'Este relatório foi gerado automaticamente por um programa em python. ' \
+                              'Veja o código em:' \
+                              '\nhttps://github.com/KokumaiLuis/projeto_python_envio_relatorios_automatizados\n\n' \
+
+                pyperclip.copy(corpo_email)
+                pyautogui.hotkey('ctrl', 'v')
+                # pyautogui.hotkey('ctrl', 'enter')
+
             else:
                 pyautogui.PAUSE = 1
 
