@@ -213,7 +213,7 @@ while True:
                               \
                               'Este relatório foi gerado automaticamente por um programa em python. ' \
                               'Veja o código em:' \
-                              '\nhttps://github.com/KokumaiLuis/projeto_python_envio_relatorios_automatizados\n\n' \
+                              '\nhttps://github.com/KokumaiLuis/Sistema-de-Envio-Automatizado-de-Relatorios\n\n' \
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
@@ -264,7 +264,7 @@ while True:
                               \
                               'Este relatório foi gerado automaticamente por um programa em python. ' \
                               'Veja o código em:' \
-                              '\nhttps://github.com/KokumaiLuis/projeto_python_envio_relatorios_automatizados\n\n' \
+                              '\nhttps://github.com/KokumaiLuis/Sistema-de-Envio-Automatizado-de-Relatorios\n\n' \
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
