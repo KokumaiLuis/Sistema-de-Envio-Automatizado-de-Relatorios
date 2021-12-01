@@ -46,7 +46,7 @@ Antes de testar o sistema, lembre-se de que você deve:
 * Estar com conexão ativa à internet;
 * Estar com sua conta ao G-mail já logada.
 
-Para utilizar o Sistema de Envio Automatizado de Relatórios sigua os seguintes passos:
+Para utilizar o Sistema de Envio Automatizado de Relatórios siga os seguintes passos:
 
 1. Faça uma cópia deste diretório para o seu computador;
 2. Abra o arquivo main.py em sua IDE;
@@ -73,7 +73,7 @@ Cores: 4
 ```
 
 ## 📫 Contribuindo com Sistema de Envio Automatizado de Relatórios
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+Para contribuir com Envio Automatizado de Relatórios, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
