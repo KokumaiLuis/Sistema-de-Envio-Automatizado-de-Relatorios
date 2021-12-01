@@ -184,7 +184,10 @@ while True:
                 pyautogui.write("mail.google.com")
                 pyautogui.press('enter')
                 time.sleep(12)
-                pyautogui.click(94, 227)
+                for c in range(0, 12):
+                    pyautogui.press('tab')
+                    time.sleep(1)
+                pyautogui.press('enter')
                 time.sleep(7)
                 for c in destinatario:
                     pyautogui.write(c)
@@ -217,7 +220,7 @@ while True:
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
-                pyautogui.hotkey('ctrl', 'enter')
+                #pyautogui.hotkey('ctrl', 'enter')
 
             else:
                 pyautogui.PAUSE = 1
@@ -239,7 +242,10 @@ while True:
                 pyautogui.write("mail.google.com")
                 pyautogui.press('enter')
                 time.sleep(12)
-                pyautogui.click(94, 227)
+                for c in range(0, 12):
+                    pyautogui.press('tab')
+                    time.sleep(1)
+                pyautogui.press('enter')
                 time.sleep(7)
                 for c in destinatario:
                     pyautogui.write(c)
@@ -268,7 +274,7 @@ while True:
 
                 pyperclip.copy(corpo_email)
                 pyautogui.hotkey('ctrl', 'v')
-                pyautogui.hotkey('ctrl', 'enter')
+                #pyautogui.hotkey('ctrl', 'enter')
 
         else:
             print('Envio de relatório por E-mail cancelado.')
