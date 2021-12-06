@@ -10,13 +10,9 @@ A lógica analisa uma planilha de vendas em excel e, com base no período descri
 
 Após isso envia um e-mail para o destinatário descrito pelo usuário com o relatório através do G-mail. (Também há a possibilidade de enviar e-mail com cópia para outros destinatários)
 
-## ⚙️ Ajustes e melhorias
+## :heavy_check_mark: Status do Projeto
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
-
-- [x] Função de múltiplos destinatários
-- [x] Função de múltiplos destinatários em cópia
-- [ ] Utilizar 'Prevenção de Erros' para solicitar data ao usuário
+:white_check_mark: Projeto Concluído! :white_check_mark:
 
 ## 📋 Pré-requisitos
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -50,15 +46,14 @@ Para utilizar o Sistema de Envio Automatizado de Relatórios siga os seguintes p
 
 1. Faça uma cópia deste diretório para o seu computador;
 2. Abra o arquivo main.py em sua IDE;
-3. Vá até a linha 33 do código e altere o caminho do diretório para o local em que está o seu arquivo excel "Vendas - Dez";
-4. Faça o mesmo na linha 109;
-5. Execute o programa e siga as instruções da command window.
+3. Vá até a linha 25 do código e altere o caminho do diretório para o local em que está o seu arquivo excel "Vendas - Dez";
+4. Execute o programa e siga as instruções da command window.
 
 ## 🗨️ Observações
 
 * O código pode ser implementado para solicitar o site, login e senha em que o usuário deseja enviar o e-mail, qualquer dúvida abra uma issue para conversarmos sobre;
 * O tempo de espera utilizado no código para executar as funções é um tempo médio padrão, ele pode ser alterado de acordo com a necessidade, qualquer dúvida abra uma issue para conversarmos sobre;
-* O sistema foi testado nos navegadores Google Chrome e Microsoft Edge, e para o funcionamento correto os navegadores devem estar em modo maximizado.
+* O sistema foi testado nos navegadores Google Chrome e Microsoft Edge.
 
 ## 🛠️ Desenvolvido Com
 ```
