@@ -44,7 +44,7 @@ Antes de testar o sistema, lembre-se de que você deve:
 
 Para utilizar o Sistema de Envio Automatizado de Relatórios siga os seguintes passos:
 
-1. Faça uma cópia deste diretório para o seu computador;
+1. Faça uma cópia deste repositório para o seu computador;
 2. Abra o arquivo main.py em sua IDE;
 3. Vá até a linha 25 do código e altere o caminho do diretório para o local em que está o seu arquivo excel "Vendas - Dez";
 4. Execute o programa e siga as instruções da command window.
