@@ -10,6 +10,8 @@ A lógica analisa uma planilha de vendas em excel e, com base no período descri
 
 Após isso envia um e-mail para o destinatário descrito pelo usuário com o relatório através do G-mail. (Também há a possibilidade de enviar e-mail com cópia para outros destinatários)
 
+Você pode ver o funcionamento aqui: https://bityli.com/MAZjrn
+
 ## :heavy_check_mark: Status do Projeto
 
 :white_check_mark: Projeto Concluído! :white_check_mark:
